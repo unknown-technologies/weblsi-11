@@ -37,11 +37,10 @@ Building
 
 Just run `make` to compile an LSI-11 emulator without any disks. If you want to
 include a particular floppy disk from the `rx02` folder or a hard disk from the
-`rl02` folder, place the relevant `.rx2` and `.rl2` images in the corresponding
-folder and pass the arguments `RX2IMG0`, `RX2IMG1`, `RL2IMG`, and `BOOTDEV` to
-`make`.
+`rl02` folder, place the relevant disk images in the corresponding folder and
+pass the arguments `RX2IMG0`, `RX2IMG1`, `RL2IMG`, and `BOOTDEV` to `make`.
 
-For example, to include a floppy disk image `rx02/lsixxdp.rx2` and
+For example, to include a floppy disk image `rx02/lsixxdp.bin` and
 automatically boot from the RX02 floppy disk drive, you could use the following
 make command line:
 
@@ -49,7 +48,7 @@ make command line:
 make RX2IMG0=lsixxdp BOOTDEV=RX02
 ```
 
-To build an image with `rx02/lsixxdp.rx2` and `rl02/rt11v57.rl2` with the boot
+To build an image with `rx02/lsixxdp.bin` and `rl02/rt11v57.bin` with the boot
 device set to the RL02 disk, run the following command:
 
 ```sh
