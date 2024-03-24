@@ -1,8 +1,8 @@
 LSI-11 in the Browser
 =====================
 
-This is an emulator of an LSI-11 system (PDP-11/03-L) connected to a VT240
-emulator, all running in the browser.
+This is an emulation of an LSI-11 system (PDP-11/03-L) connected to a virtual
+VT240 terminal, all running in the browser.
 
 The emulated system has 6 modules installed:
 - KD11-NA (M7270) CPU
@@ -16,7 +16,13 @@ This emulator passes (at least) the basic instruction test (VKAAC0), EIS
 instruction test (VKABB0), FIS instruction test (VKACC1), traps test (VKADC0),
 and 4K system exerciser (VKAHA1). It can boot RT-11SB V05.07, RT-11FB V05.07,
 and XXDP V2.6. A pre-configured version of XXDP with all relevant diagnostics
-is included in `rx02/lsixxdp.rx2`.
+is included in `rx02/lsixxdp.bin`.
+
+The LSI-11 emulator is based on the native
+[LSI-11](https://github.com/hackyourlife/lsi-11) emulator which was later
+optimized and ported to an STM32 microcontroller. The code here is based on
+that STM32 microcontroller port, which eliminates the inefficient bus handling
+and omits all tracing code.
 
 The VT240 terminal emulator is taken from the separate
 [VT240 repository](https://github.com/unknown-technologies/vt240) which also
