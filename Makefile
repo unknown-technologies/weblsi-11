@@ -101,7 +101,7 @@ all: $(TARGET).js
 %.o: %.glsl
 	@echo "[GLSL]  $(notdir $@)"
 	@$(GLSLANG) $<
-	@echo -e "const char $(subst .,_,$(basename $@))[] = { $(shell cat $< | sed -e 's/#version 330/#version 300 es\nprecision highp float;precision highp int;precision highp usampler2D;/' | xxd -i), 0 };" | $(CC) $(OPT) -std=c99 -c -x c -o $@ -
+	@echo -e "const char $(subst .,_,$(basename $@))[] = { $(shell cat $< | sed -e 's/#version 330/#version 300 es\nprecision highp float;precision highp int;precision highp usampler2D;/' | sed -e 's/\(uniform.*\) =.*$$/\1;/' | xxd -i), 0 };" | $(CC) $(OPT) -std=c99 -c -x c -o $@ -
 
 %.o: %.bin
 	@echo "[BIN]   $(notdir $@)"
